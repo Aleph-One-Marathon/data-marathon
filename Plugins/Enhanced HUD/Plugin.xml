@@ -1,0 +1,1 @@
+<plugin name="Enhanced HUD" version="1.0pre" description="XBLA-style HUD for Marathon" hud_lua="Plugin.lua" />
