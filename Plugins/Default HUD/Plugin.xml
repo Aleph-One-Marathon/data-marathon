@@ -1,0 +1,3 @@
+<plugin name="Default HUD" version="1.0" description="Original HUD for Marathon" hud_lua="Default_HUD_M1.lua">
+</plugin>
+
