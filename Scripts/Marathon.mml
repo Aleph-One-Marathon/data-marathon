@@ -499,6 +499,7 @@
     <shape subtype="5" type="4" value="14" />
     <shape subtype="6" type="4" value="16" />
     <shape subtype="10" type="4" value="23" />
+    <damage index="6" death_sound="79" death_action="7"/>
   </player>
   <scenery>
     <object destruction="-1" flags="1" height="512" index="0" radius="256">
@@ -707,4 +708,7 @@
     <line scale="2" width="2" type="2" />
     <line scale="3" width="4" type="2" />
   </overhead_map>
+  <damage_kicks>
+    <kick index="6" death_action="7"/>
+  </damage_kicks>
 </marathon>
