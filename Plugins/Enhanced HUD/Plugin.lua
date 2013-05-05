@@ -1,4 +1,4 @@
--- Enhanced HUD version 1.0
+-- Enhanced HUD version 1.1
 -- by Hopper
 -- with thanks to Bungie and Freeverse
 
