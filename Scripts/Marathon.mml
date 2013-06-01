@@ -303,82 +303,82 @@
     <fader final_opacity="1" flags="1" index="0" initial_opacity="1" period="0" priority="0" type="0">
       <color blue="0" green="0" red="0" />
     </fader>
-    <fader final_opacity="0" flags="1" index="1" initial_opacity="1" period="30" priority="0" type="0">
+    <fader final_opacity="0" flags="1" index="1" initial_opacity="1" period="500" priority="0" type="0">
       <color blue="0" green="0" red="0" />
     </fader>
-    <fader final_opacity="0" flags="1" index="2" initial_opacity="1" period="90" priority="0" type="0">
+    <fader final_opacity="0" flags="1" index="2" initial_opacity="1" period="1500" priority="0" type="0">
       <color blue="0" green="0" red="0" />
     </fader>
-    <fader final_opacity="1" flags="1" index="3" initial_opacity="0" period="30" priority="0" type="0">
+    <fader final_opacity="1" flags="1" index="3" initial_opacity="0" period="500" priority="0" type="0">
       <color blue="0" green="0" red="0" />
     </fader>
     <fader final_opacity="0" flags="1" index="4" initial_opacity="0" period="0" priority="0" type="0">
       <color blue="0" green="0" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="5" initial_opacity="0.75" period="15" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="5" initial_opacity="0.75" period="250" priority="0" type="0">
       <color blue="0" green="0" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="6" initial_opacity="1" period="45" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="6" initial_opacity="1" period="750" priority="0" type="0">
       <color blue="0" green="0" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="7" initial_opacity="0.5" period="15" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="7" initial_opacity="0.5" period="250" priority="0" type="0">
       <color blue="0" green="1" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="8" initial_opacity="1" period="20" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="8" initial_opacity="1" period="333" priority="0" type="0">
       <color blue="0.763" green="1" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="9" initial_opacity="1" period="240" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="9" initial_opacity="1" period="4000" priority="0" type="0">
       <color blue="0.763" green="1" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="10" initial_opacity="1" period="30" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="10" initial_opacity="1" period="500" priority="0" type="0">
       <color blue="0" green="1" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="11" initial_opacity="1" period="60" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="11" initial_opacity="1" period="1000" priority="0" type="0">
       <color blue="0" green="1" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="12" initial_opacity="0.75" period="15" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="12" initial_opacity="0.75" period="250" priority="0" type="0">
       <color blue="1" green="0.418" red="0.8399" />
     </fader>
-    <fader final_opacity="0" flags="0" index="13" initial_opacity="0.75" period="30" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="13" initial_opacity="0.75" period="500" priority="0" type="0">
       <color blue="0.875" green="1" red="0.6602" />
     </fader>
-    <fader final_opacity="0" flags="0" index="14" initial_opacity="0.5" period="15" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="14" initial_opacity="0.5" period="250" priority="0" type="0">
       <color blue="1" green="1" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="15" initial_opacity="1" period="30" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="15" initial_opacity="1" period="500" priority="0" type="0">
       <color blue="1" green="1" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="16" initial_opacity="1" period="15" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="16" initial_opacity="1" period="250" priority="0" type="0">
       <color blue="0" green="0.5" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="17" initial_opacity="0.75" period="180" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="17" initial_opacity="0.75" period="3000" priority="0" type="0">
       <color blue="0" green="0.5" red="1" />
     </fader>
-    <fader final_opacity="0" flags="0" index="18" initial_opacity="0.75" period="30" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="18" initial_opacity="0.75" period="500" priority="0" type="0">
       <color blue="0" green="1" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="19" initial_opacity="0.75" period="180" priority="0" type="0">
+    <fader final_opacity="0" flags="0" index="19" initial_opacity="0.75" period="3000" priority="0" type="0">
       <color blue="0" green="1" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="20" initial_opacity="1" period="22" priority="0" type="1">
+    <fader final_opacity="0" flags="0" index="20" initial_opacity="1" period="367" priority="0" type="1">
       <color blue="0" green="0" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="21" initial_opacity="1" period="30" priority="0" type="2">
+    <fader final_opacity="0" flags="0" index="21" initial_opacity="1" period="500" priority="0" type="2">
       <color blue="0" green="0" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="22" initial_opacity="1" period="90" priority="0" type="2">
+    <fader final_opacity="0" flags="0" index="22" initial_opacity="1" period="1500" priority="0" type="2">
       <color blue="0" green="0" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="23" initial_opacity="1" period="45" priority="0" type="3">
+    <fader final_opacity="0" flags="0" index="23" initial_opacity="1" period="750" priority="0" type="3">
       <color blue="0" green="1" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="24" initial_opacity="1" period="60" priority="0" type="4">
+    <fader final_opacity="0" flags="0" index="24" initial_opacity="1" period="1000" priority="0" type="4">
       <color blue="1" green="1" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="25" initial_opacity="1" period="90" priority="0" type="3">
+    <fader final_opacity="0" flags="0" index="25" initial_opacity="1" period="1500" priority="0" type="3">
       <color blue="1" green="0" red="0" />
     </fader>
-    <fader final_opacity="0" flags="0" index="26" initial_opacity="1" period="120" priority="0" type="4">
+    <fader final_opacity="0" flags="0" index="26" initial_opacity="1" period="2000" priority="0" type="4">
       <color blue="0" green="1" red="0" />
     </fader>
   </faders>
