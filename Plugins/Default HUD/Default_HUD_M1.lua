@@ -2,6 +2,8 @@
 
 Triggers = {}
 function Triggers.draw()
+  if TexturePalette.draw() then return end
+  
   draw_background()
   
   if Player.motion_sensor.active then
@@ -164,6 +166,8 @@ function Triggers.draw()
 end
 
 function Triggers.resize()
+  if TexturePalette.resize() then return end
+  
   local ww = Screen.width
   local wh = Screen.height
   
@@ -771,3 +775,168 @@ function weapon_energy_draw(trigger)
   Screen.fill_rect(dr.x, dr.y, dr.width, dr.height - fill_height, disp.empty_color)  
 end
 
+
+
+-- BEGIN texture palette utility
+--
+-- Use: in Triggers.draw: "if TexturePalette.draw() then return end"
+--    in Triggers.resize: "if TexturePalette.resize() then return end"
+
+TexturePalette = {}
+TexturePalette.active = false
+
+function TexturePalette.check_active()
+  local old_active = TexturePalette.active
+  local new_active = false
+  if Player.texture_palette.size > 0 then new_active = true end
+  TexturePalette.active = new_active
+  
+  if old_active and not new_active then
+    Screen.crosshairs.lua_hud = TexturePalette.saved_crosshairs_lua_hud
+    Triggers.resize()
+  elseif new_active and not old_active then
+    TexturePalette.palette_cache = {}
+    TexturePalette.saved_crosshairs_lua_hud = Screen.crosshairs.lua_hud
+    Screen.crosshairs.lua_hud = false
+    TexturePalette.resize()
+  end
+  return TexturePalette.active
+end
+
+function TexturePalette.get_shape(slot)
+  local key = string.format("%d %d", slot.collection, slot.texture_index)
+  local shp = TexturePalette.palette_cache[key]
+  if not shp then
+    shp = Shapes.new{collection = slot.collection, texture_index = slot.texture_index, type = slot.type}
+    TexturePalette.palette_cache[key] = shp
+  end
+  return shp
+end
+
+function TexturePalette.draw_shape(slot, x, y, size)
+  local shp = TexturePalette.get_shape(slot)
+  if not shp then return end
+  if shp.width > shp.height then
+    shp:rescale(size, shp.unscaled_height * size / shp.unscaled_width)
+    shp:draw(x, y + (size - shp.height)/2)
+  else
+    shp:rescale(shp.unscaled_width * size / shp.unscaled_height, size)
+    shp:draw(x + (size - shp.width)/2, y)
+  end
+end
+
+function TexturePalette.draw(hr)
+  if not TexturePalette.check_active() then return false end
+  
+  local hr = TexturePalette.hud_rect
+  local tcount = Player.texture_palette.size
+  local size
+  if     tcount <=   5 then size = 128
+  elseif tcount <=  16 then size =  80
+  elseif tcount <=  36 then size =  53
+  elseif tcount <=  64 then size =  40
+  elseif tcount <= 100 then size =  32
+  elseif tcount <= 144 then size =  26
+  else                      size =  20
+  end
+  size = size * hr.scale
+  
+  local rows = math.floor(hr.height/size)
+  local cols = math.floor(hr.width/size)
+  local x_offset = hr.x + (hr.width - cols * size)/2
+  local y_offset = hr.y + (hr.height - rows * size)/2
+  
+  for i = 0,tcount - 1 do
+    TexturePalette.draw_shape(
+      Player.texture_palette.slots[i],
+      (i % cols) * size + x_offset + hr.scale/2,
+      math.floor(i / cols) * size + y_offset + hr.scale/2,
+      size - hr.scale)
+  end
+  
+  if Player.texture_palette.highlight then
+    local i = Player.texture_palette.highlight
+    Screen.frame_rect(
+      (i % cols) * size + x_offset,
+      math.floor(i / cols) * size + y_offset,
+      size, size,
+      InterfaceColors["inventory text"],
+      hr.scale)
+  end
+  
+  return true
+end
+
+function TexturePalette.resize()
+  if not TexturePalette.check_active() then return false end
+  
+  local ww = Screen.width
+  local wh = Screen.height
+  
+  -- calculate HUD area
+  TexturePalette.hud_rect = {}
+  local hudsize = Screen.hud_size_preference
+  if hudsize == SizePreferences["normal"] then
+    TexturePalette.hud_rect.width = 640
+  elseif hudsize == SizePreferences["double"] then
+    if wh >= 960 and ww >= 1280 then
+      TexturePalette.hud_rect.width = 1280
+    end
+  elseif hudsize == SizePreferences["largest"] then
+    TexturePalette.hud_rect.width = math.min(ww, math.max(640, (4 * wh) / 3));
+  end
+  
+  TexturePalette.hud_rect.height = TexturePalette.hud_rect.width / 4
+  TexturePalette.hud_rect.x = math.floor((ww - TexturePalette.hud_rect.width) / 2)
+  TexturePalette.hud_rect.y = math.floor(wh - TexturePalette.hud_rect.height)
+  
+  TexturePalette.hud_rect.scale = TexturePalette.hud_rect.width / 640
+
+  -- remove HUD height from rest of calculations
+  wh = TexturePalette.hud_rect.y
+  
+  -- calculate terminal area
+  local termsize = Screen.term_size_preference
+  if termsize == SizePreferences["normal"] then
+    Screen.term_rect.width = 640
+  elseif termsize == SizePreferences["double"] then
+    if wh >= 640 and ww >= 1280 then
+      Screen.term_rect.width = 1280
+    end
+  elseif termsize == SizePreferences["largest"] then
+    Screen.term_rect.width = math.min(ww, math.max(640, 2 * wh))
+  end
+  
+  Screen.term_rect.height = Screen.term_rect.width / 2
+  Screen.term_rect.x = math.floor((ww - Screen.term_rect.width) / 2)
+  Screen.term_rect.y = math.floor((wh - Screen.term_rect.height) / 2)
+  
+  -- calculate world-view area
+  Screen.world_rect.width = math.min(ww, math.max(640, 2 * wh))
+  Screen.world_rect.height = Screen.world_rect.width / 2
+  Screen.world_rect.x = math.floor((ww - Screen.world_rect.width) / 2)
+  Screen.world_rect.y = math.floor((wh - Screen.world_rect.height) / 2)
+  
+  -- calculate map area
+  if Screen.map_overlay_active then
+    -- overlay just matches world-view
+    Screen.map_rect.width = Screen.world_rect.width
+    Screen.map_rect.height = Screen.world_rect.height
+    Screen.map_rect.x = Screen.world_rect.x
+    Screen.map_rect.y = Screen.world_rect.y
+  else
+    Screen.map_rect.width = ww
+    Screen.map_rect.height = wh
+    Screen.map_rect.x = 0
+    Screen.map_rect.y = 0
+  end
+  
+  Screen.clip_rect.width = Screen.width
+  Screen.clip_rect.height = Screen.height
+  Screen.clip_rect.x = 0
+  Screen.clip_rect.y = 0
+
+  return true
+end
+
+-- END texture palette utility
