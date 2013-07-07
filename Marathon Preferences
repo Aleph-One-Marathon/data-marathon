@@ -4,6 +4,7 @@
   <!-- fill the screen, scale terminals, enable static effects -->
   <graphics 
       scmode_fill_the_screen="true" 
+      scmode_hud_scale="2"
       scmode_term_scale="2"
       ogl_flags="2969" 
       />
