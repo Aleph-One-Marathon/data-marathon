@@ -186,7 +186,7 @@ function Triggers.resize()
   
   hud_rect.height = hud_rect.width * 3 / 4
   hud_rect.x = math.floor((ww - hud_rect.width) / 2)
-  hud_rect.y = math.floor(wh - hud_rect.height)
+  hud_rect.y = math.floor((wh - hud_rect.height) / 2)
   
   hud_rect.scale = hud_rect.width / 640
   
