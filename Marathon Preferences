@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Default Preferences for first run -->
+<mara_prefs>
+  <!-- fill the screen, scale terminals, enable static effects -->
+  <graphics 
+      scmode_fill_the_screen="true" 
+      scmode_term_scale="2"
+      ogl_flags="2969" 
+      />
+  <!-- turn on the mouse -->
+  <input
+      device="1">
+    <sdl_key index="0" value="119"/>
+    <sdl_key index="1" value="115"/>
+    <sdl_key index="2" value="276"/>
+    <sdl_key index="3" value="275"/>
+    <sdl_key index="4" value="97"/>
+    <sdl_key index="5" value="100"/>
+    <sdl_key index="6" value="113"/>
+    <sdl_key index="7" value="101"/>
+    <sdl_key index="8" value="120"/>
+    <sdl_key index="9" value="99"/>
+    <sdl_key index="10" value="118"/>
+    <sdl_key index="11" value="102"/>
+    <sdl_key index="12" value="114"/>
+    <sdl_key index="13" value="65"/>
+    <sdl_key index="14" value="32"/>
+    <sdl_key index="15" value="0"/>
+    <sdl_key index="16" value="306"/>
+    <sdl_key index="17" value="310"/>
+    <sdl_key index="18" value="9"/>
+    <sdl_key index="19" value="109"/>
+    <sdl_key index="20" value="96"/>
+    <sdl_key index="21" value="91"/>
+    <sdl_key index="22" value="93"/>
+    <sdl_key index="23" value="8"/>
+    <sdl_key index="24" value="46"/>
+    <sdl_key index="25" value="44"/>
+    <sdl_key index="26" value="61"/>
+    <sdl_key index="27" value="45"/>
+    <sdl_key index="28" value="47"/>
+    <sdl_key index="29" value="92"/>
+    <sdl_key index="30" value="49"/>
+  </input>
+</mara_prefs>
