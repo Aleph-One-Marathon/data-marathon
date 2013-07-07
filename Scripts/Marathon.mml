@@ -8,7 +8,7 @@
     <string index="2">Sounds.sndz</string>
     <string index="4">Marathon Preferences</string>
     <string index="5">Map.scen</string>
-    <string index="9">Standard.phys</string>
+    <string index="9">Physics.phys</string>
   </stringset>
 
   <sounds
