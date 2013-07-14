@@ -710,5 +710,6 @@
   </overhead_map>
   <damage_kicks>
     <kick index="6" death_action="7"/>
+    <kick index="7" vertical="true" base="50" mult="2"/>
   </damage_kicks>
 </marathon>
