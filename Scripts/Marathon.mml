@@ -245,58 +245,72 @@
     <panel active_frame="3" coll="8" inactive_frame="4" index="0" item="-1" type="0">
       <sound type="0" which="2295" />
       <sound type="1" which="-1" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="3" coll="8" inactive_frame="4" index="1" item="-1" type="1">
       <sound type="0" which="2290" />
       <sound type="1" which="-1" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="3" coll="8" inactive_frame="4" index="2" item="-1" type="2">
       <sound type="0" which="2290" />
       <sound type="1" which="-1" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="3" coll="8" inactive_frame="4" index="3" item="-1" type="3">
       <sound type="0" which="2290" />
       <sound type="1" which="-1" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="1" coll="8" inactive_frame="2" index="4" item="-1" type="4">
       <sound type="0" which="1280" />
       <sound type="1" which="1250" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="1" coll="8" inactive_frame="2" index="5" item="-1" type="5">
       <sound type="0" which="1280" />
       <sound type="1" which="1250" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="0" coll="8" inactive_frame="0" index="6" item="-1" type="7">
       <sound type="0" which="-1" />
       <sound type="1" which="-1" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="1" coll="8" inactive_frame="2" index="7" item="-1" type="6">
       <sound type="0" which="1280" />
       <sound type="1" which="1250" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="0" coll="8" inactive_frame="0" index="8" item="-1" type="8">
       <sound type="0" which="-1" />
       <sound type="1" which="-1" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="5" coll="8" inactive_frame="6" index="9" item="18" type="6">
       <sound type="0" which="20140" />
       <sound type="1" which="20140" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="2" coll="24" inactive_frame="1" index="10" item="-1" type="2">
       <sound type="0" which="20090" />
       <sound type="1" which="-1" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="2" coll="24" inactive_frame="1" index="11" item="-1" type="3">
       <sound type="0" which="20090" />
       <sound type="1" which="-1" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="5" coll="24" inactive_frame="0" index="12" item="-1" type="5">
       <sound type="0" which="20070" />
       <sound type="1" which="20080" />
+      <sound type="2" which="20180" />
     </panel>
     <panel active_frame="3" coll="24" inactive_frame="3" index="13" item="-1" type="7">
       <sound type="0" which="-1" />
       <sound type="1" which="-1" />
+      <sound type="2" which="20180" />
     </panel>
   </control_panels>
   <faders>
