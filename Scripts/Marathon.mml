@@ -726,4 +726,10 @@
     <kick index="6" death_action="7"/>
     <kick index="7" vertical="true" base="50" mult="2"/>
   </damage_kicks>
+  <monsters>
+    <!-- Juggernauts and alien leader must be killed in extermination levels -->
+    <monster index="22" must_be_exterminated="true"/>
+    <monster index="23" must_be_exterminated="true"/>
+    <monster index="38" must_be_exterminated="true"/>
+  </monsters>
 </marathon>
