@@ -152,6 +152,8 @@
   </infravision>
 
   <landscapes>
+    <!-- Marathon has 12 horizontal repeats in its landscapes,
+         but Aleph One can only do 8 or 16.  -->
     <landscape coll="17" horiz_exp="3" vert_exp="3" ogl_asprat_exp="0" vert_repeat="true"/>
     <landscape coll="18" horiz_exp="3" vert_exp="3" ogl_asprat_exp="0" vert_repeat="true"/>
     <landscape coll="19" horiz_exp="3" vert_exp="3" ogl_asprat_exp="0" vert_repeat="true"/>
