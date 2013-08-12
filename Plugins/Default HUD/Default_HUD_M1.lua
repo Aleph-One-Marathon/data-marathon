@@ -1,4 +1,4 @@
--- Default HUD for Marathon, version 1.0
+-- Default HUD for Marathon, version 1.1
 
 Triggers = {}
 function Triggers.draw()
