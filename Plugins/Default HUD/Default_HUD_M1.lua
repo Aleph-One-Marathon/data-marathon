@@ -174,9 +174,8 @@ function Triggers.resize()
   -- calculate HUD area
   hud_rect = {}
   local hudsize = Screen.hud_size_preference
-  if hudsize == SizePreferences["normal"] then
-    hud_rect.width = 640
-  elseif hudsize == SizePreferences["double"] then
+  hud_rect.width = 640
+  if hudsize == SizePreferences["double"] then
     if wh >= 960 and ww >= 1280 then
       hud_rect.width = 1280
     end
@@ -876,9 +875,8 @@ function TexturePalette.resize()
   -- calculate HUD area
   TexturePalette.hud_rect = {}
   local hudsize = Screen.hud_size_preference
-  if hudsize == SizePreferences["normal"] then
-    TexturePalette.hud_rect.width = 640
-  elseif hudsize == SizePreferences["double"] then
+  TexturePalette.hud_rect.width = 640
+  if hudsize == SizePreferences["double"] then
     if wh >= 960 and ww >= 1280 then
       TexturePalette.hud_rect.width = 1280
     end
@@ -897,9 +895,8 @@ function TexturePalette.resize()
   
   -- calculate terminal area
   local termsize = Screen.term_size_preference
-  if termsize == SizePreferences["normal"] then
-    Screen.term_rect.width = 640
-  elseif termsize == SizePreferences["double"] then
+  Screen.term_rect.width = 640
+  if termsize == SizePreferences["double"] then
     if wh >= 640 and ww >= 1280 then
       Screen.term_rect.width = 1280
     end
