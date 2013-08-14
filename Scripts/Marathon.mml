@@ -515,7 +515,7 @@
     <shape subtype="5" type="4" value="14" />
     <shape subtype="6" type="4" value="16" />
     <shape subtype="10" type="4" value="23" />
-    <damage index="2" death_sound="1430"/>
+    <damage index="1" death_sound="1430"/>
     <damage index="6" sound="1220" />
     <damage index="7" sound="1220" />
     <damage index="8" death_sound="1430"/>
