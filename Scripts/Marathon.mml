@@ -243,7 +243,7 @@
   </stringset>
 
   <!-- generated from scripts on GitHub -->
-  <control_panels>
+  <control_panels horiz="4">
     <panel active_frame="3" coll="8" inactive_frame="4" index="0" item="-1" type="0">
       <sound type="0" which="2295" />
       <sound type="1" which="-1" />
