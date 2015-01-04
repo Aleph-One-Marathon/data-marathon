@@ -416,10 +416,10 @@ function Triggers.draw()
   end
   
   -- chip
-  if Player.items["uplink chip"].count > 0 then
+  if Player.items[18].count > 0 then
     local cx = -(img.chipIndicator.width / 2) - pos.chipOffset.x
     local cy = pos.chipOffset.y - (img.chipIndicator.height / 2)
-    for i = 1,Player.items["uplink chip"].count do
+    for i = 1,Player.items[18].count do
       drawBR(img.chipIndicator, cx, cy)
       cy = cy + img.chipIndicator.height
     end
