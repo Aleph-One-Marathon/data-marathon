@@ -1,7 +1,7 @@
 <marathon>
 
   <!-- hand-built items -->
-  <scenario name="Marathon" id="Marathon" />
+  <scenario name="Marathon" id="Marathon 1.2" />
 
   <stringset index="129">
     <string index="0">Shapes.shps</string>
