@@ -45,107 +45,92 @@ function Triggers.cleanup()
       end
    end
 
-   -- only check multiplayer wins if the game finishes
-   -- corollary: untimed games with no kill limit never count as wins!
-   local find_winner = false
-   if Players[0].disconnected then
-      -- gatherer went away, game was interrupted
-      stats["interrupted"] = 1
+   if #Players > 1 then
+      stats["player index"] = local_player.index
 
-   elseif Game.time_remaining == 0 then
-      find_winner = true
+      if Game.type ~= "kill monsters" and
+         Game.type ~= "cooperative play" then
+         stats["points"] = local_player.points
+      end
+     
+      -- only check multiplayer wins if the game finishes
+      -- corollary: untimed games with no kill limit never count as wins!
+      local find_winner = false
 
-   elseif Game.kill_limit > 0 then
-      for p in Players() do
-         local total_kills = 0
-         for pp in Players() do
-            -- don't count suicides
-            if p ~= pp then
-               total_kills = total_kills + p.kills[pp]
+      if Players[0].disconnected then
+         -- gatherer went away, game was interrupted
+         stats["interrupted"] = 1
+      elseif Game.type == "cooperative play" then
+         -- Lua doesn't provide monster damage to replicate scoring
+         find_winner = false
+      elseif Game.time_remaining == 0 then
+         -- Kill limit games convert to timed games when limit is
+         -- reached, so this check conveniently covers both
+         find_winner = true
+      end
+      
+      if find_winner then
+         -- send kills, deaths, suicides for complete game
+         stats["game suicides"] = local_player.kills[local_player]
+         stats["game deaths"] = local_player.deaths
+         stats["game kills"] = 0
+         for p in Players() do
+            if p ~= local_player then
+               stats["game deaths"] = stats["game deaths"] + p.kills[local_player]
+               stats["game deaths by player " .. p.index] = p.kills[local_player]
+               stats["game kills"] = stats["game kills"] + local_player.kills[p]
+               stats["game kills of player " .. p.index] = local_player.kills[p]
             end
          end
-         if total_kills >= Game.kill_limit then
-            find_winner = true
-            break
+         
+         -- determine scores and rankings
+         local scores = {}
+         if Game.type == "kill monsters" then
+            -- emfh
+            for p in Players() do 
+               -- emfh score = total kills (excluding suicides) - total deaths
+               scores[p] = 0
+               -- count up all the player's kills
+               for pp in Players() do
+                  if p ~= pp then
+                     scores[p] = scores[p] + p.kills[pp]
+                  end
+               end
+               -- subtract times he was killed (by other players and himself)
+               for pp in Players() do
+                  scores[p] = scores[p] - pp.kills[p]
+               end
+               -- subtract times he died for other reasons
+               scores[p] = scores[p] - p.deaths
+            end
+         else
+            local mult = 1
+            if Game.type == "tag" or
+               (Game.type == "netscript" and
+                (Game.scoring_mode == "least points" or
+                 Game.scoring_mode == "least_time")) then
+               mult = -1
+            end
+            for p in Players() do
+               scores[p] = p.points * mult
+            end
          end
-      end
-   end
-
-   -- determine a winner!
-   if # Players > 1 and Game.type == "kill monsters" then
-      -- emfh
-      local scores = {}
-      for p in Players() do 
-         scores[p] = 0
-         -- count up all the player's kills
-         for pp in Players() do
-            scores[p] = scores[p] + p.kills[pp]
+         stats["score"] = scores[local_player]
+         
+         stats["ranking"] = 1
+         local tied = 0
+         for p in Players() do
+            if scores[p] > scores[local_player] then
+               increment("ranking")
+            elseif p ~= local_player and scores[p] == scores[local_player] then
+               tied = 1
+            end
          end
-         -- subtract times he was killed (by other players and himself)
-         for pp in Players() do
-            scores[p] = scores[p] - pp.kills[p]
-         end
-      end
-   
-      local winner = local_player
-      local ranking = 1
-      for k, v in pairs(scores) do
-         if v > scores[winner] then
-            winner = k
-         end
-         if v > scores[local_player] then
-            ranking = ranking + 1
-         end
-      end
-
-      if find_winner then
-         stats["ranking"] = ranking
-         if winner == local_player then
+         if stats["ranking"] == 1 and tied == 0 then
             stats["winner"] = 1
          end
-      end
-
-   elseif Game.type == "king of the hill" 
-      or Game.type == "kill the man with the ball" then
-      local winner = local_player
-      local ranking = 1
-      for p in Players() do
-         if p.points > winner.points then
-            winner = p
-         end
-         if p.points > local_player.points then
-            ranking = ranking + 1
-         end
-      end
-
-      if find_winner then
-         stats["ranking"] = ranking
-         if winner == local_player then
-            stats["winner"] = 1
-         end
-      end
-      stats["points"] = local_player.points
-
-   elseif Game.type == "tag" then
-      local winner = local_player
-      local ranking = 1
-      for p in Players() do
-         if p.points < winner.points then
-            winner = p
-         end
-         if p.points < local_player.points then
-            ranking = ranking + 1
-         end
-      end
-
-      if find_winner then
-         stats["ranking"] = ranking
-         if winner == local_player then
-            stats["winner"] = 1
-         end
-      end
-      stats["points"] = local_player.points
-   end
+      end -- find_winner
+   end -- #Players > 1
    
    -- count polygons and lines
    counted_lines = {}
@@ -228,13 +213,21 @@ function Triggers.player_killed(victim, aggressor)
       
       if aggressor == local_player then
          increment("suicides")
+      elseif aggressor then
+         increment("deaths by player " .. aggressor.index)
       end
 
-      --stats["death polygon"] = local_player.polygon.index
-   end
-   
-   if aggressor == local_player then
+      -- kill zones
+      if stats["death locations"] == nil then
+         stats["death locations"] = ""
+      end
+      stats["death locations"] = stats["death locations"] .. 
+           string.format(" %.1f,%.1f,%.1f,%d",
+                         victim.x, victim.y, victim.z, victim.polygon)
+      
+   elseif aggressor == local_player then
       increment("kills")
+      increment("kills of player " .. victim.index)
    end
 end
 
