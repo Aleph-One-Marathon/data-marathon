@@ -13,9 +13,11 @@ function Triggers.init(restored)
    stats = {}
 
    stats["start tick"] = Game.ticks
-   stats["player name"] = local_player.name
    stats["player color"] = local_player.color.mnemonic
-   stats["player team"] = local_player.team.mnemonic
+   if #Players > 1 then
+      stats["player name"] = local_player.name
+      stats["player team"] = local_player.team.mnemonic
+   end
    stats["difficulty"] = Game.difficulty.mnemonic
    stats["game type"] = Game.type.mnemonic
    stats["level"] = Level.name
@@ -75,8 +77,8 @@ function Triggers.cleanup()
          stats["game deaths"] = local_player.deaths
          stats["game kills"] = 0
          for p in Players() do
+            stats["game deaths"] = stats["game deaths"] + p.kills[local_player]
             if p ~= local_player then
-               stats["game deaths"] = stats["game deaths"] + p.kills[local_player]
                stats["game deaths by player " .. p.index] = p.kills[local_player]
                stats["game kills"] = stats["game kills"] + local_player.kills[p]
                stats["game kills of player " .. p.index] = local_player.kills[p]
@@ -223,7 +225,7 @@ function Triggers.player_killed(victim, aggressor)
       end
       stats["death locations"] = stats["death locations"] .. 
            string.format(" %.1f,%.1f,%.1f,%d",
-                         victim.x, victim.y, victim.z, victim.polygon)
+                         victim.x, victim.y, victim.z, victim.polygon.index)
       
    elseif aggressor == local_player then
       increment("kills")
