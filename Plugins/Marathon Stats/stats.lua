@@ -31,6 +31,7 @@ function Triggers.init(restored)
    if restored then
       stats["restored"] = 1
    end
+   establish_session(restored)
 end
 
 function Triggers.cleanup()
@@ -239,6 +240,42 @@ function increment(key)
    else
       stats[key] = 1
    end
+end
+
+function establish_session(restored)
+   if Game.ticks == 0 then
+      Game._initial_level = Level.index
+      Game._saves_loaded = 0
+   elseif restored then
+      Game.restore_saved()
+      if Game._saves_loaded ~= nil then
+         Game._saves_loaded = Game._saves_loaded + 1
+      end
+   else
+      Game.restore_passed()
+   end 
+   
+   if Game._stat_session ~= nil then
+      Game._parent_session = Game._stat_session
+   end
+   Game._stat_session = create_session_id()
+   
+   if Game._initial_level ~= nil then
+      stats["initial level"] = Game._initial_level
+   end
+   if Game._parent_session ~= nil then
+      stats["parent session"] = Game._parent_session
+   end
+   if Game._stat_session ~= nil then
+      stats["stat session"] = Game._stat_session
+   end
+   if Game._saves_loaded ~= nil then
+      stats["saves loaded"] = Game._saves_loaded
+   end
+end
+
+function create_session_id()
+   return string.sub(tostring(math.random()), 3)
 end
 
 function apply_m1_mnemonics()
