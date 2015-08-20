@@ -39,12 +39,17 @@ function Triggers.cleanup()
    stats["end tick"] = Game.ticks
    if Level.completed then
       stats["level completed"] = 1
-      -- calculate saved bobs for M1
       stats["bobs saved"] = 0
+            
+      -- count monsters left alive on map
       for m in Monsters() do 
-         if m.type.class == "bob" and m.vitality > 0 then
-            increment("bobs saved");
-         end
+         if not m.player and (m.vitality > 0 or not m.visible) then
+          increment(monster.type.mnemonic .. "s spared")
+          -- calculate saved bobs for M1
+          if m.type.class == "bob" and m.vitality > 0 then
+            increment("bobs saved")
+          end
+        end
       end
    end
 
