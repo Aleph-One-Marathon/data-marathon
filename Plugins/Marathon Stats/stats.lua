@@ -44,7 +44,7 @@ function Triggers.cleanup()
       -- count monsters left alive on map
       for m in Monsters() do 
          if not m.player and (m.vitality > 0 or not m.visible) then
-          increment(monster.type.mnemonic .. "s spared")
+          increment(m.type.mnemonic .. "s spared")
           -- calculate saved bobs for M1
           if m.type.class == "bob" and m.vitality > 0 then
             increment("bobs saved")
