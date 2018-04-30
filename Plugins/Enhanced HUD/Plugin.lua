@@ -169,7 +169,7 @@ function Triggers.resize()
   Screen.map_rect.y = 0
   
   local min_aspect_ratio = 1.6
-  local max_aspect_ratio = 2.0
+  local max_aspect_ratio = 2.4
   local h = math.min(Screen.height, Screen.width / min_aspect_ratio)
   local w = math.min(Screen.width, h*max_aspect_ratio)
   Screen.world_rect.width = w
