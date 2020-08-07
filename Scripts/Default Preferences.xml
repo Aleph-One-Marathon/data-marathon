@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Default Preferences for first run -->
-<mara_prefs version="2020803">
+<mara_prefs version="20200803">
   <graphics scmode_hud_scale="2" ogl_flags="19073">
 	<texture index="0" near_filter="0"/>
     <texture index="1" near_filter="0"/>
