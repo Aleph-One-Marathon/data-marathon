@@ -20,7 +20,7 @@ In late 2011, Aleph One began distributing Marathon game content bundled with Al
 
 [1]: http://trilogyrelease.bungie.org/
 [2]: http://infinitysource.bungie.org/
-[3]: http://halo.bungie.net/news/content.aspx?cid=31991
+[3]: https://web.archive.org/web/20141013213318/http://halo.bungie.net/News/content.aspx?cid=31991
 
 
 
