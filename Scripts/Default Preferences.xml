@@ -9,7 +9,5 @@
   </graphics>
   <environment>
 	<disable_plugin path="$default$/Plugins/Enhanced HUD"/>
-    <disable_plugin path="$default$/Plugins/TTEP v7"/>
-    <disable_plugin path="$default$/Plugins/Updated Starscape"/>
   </environment>
 </mara_prefs>
