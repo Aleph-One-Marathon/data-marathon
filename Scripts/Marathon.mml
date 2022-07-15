@@ -11,6 +11,14 @@
     <string index="9">Physics.phys</string>
   </stringset>
 
+  <!-- disable the vidmaster prompt -->
+  <interface>
+	<vidmaster stringset_index="9998"/>
+  </interface>
+  <stringset index="9998">
+	<string index="0"></string>
+  </stringset>
+
   <sounds
       terminal_logon="2230"
       terminal_logoff="-1"
