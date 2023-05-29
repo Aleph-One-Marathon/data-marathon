@@ -1,0 +1,39 @@
+System Se7en 1.2
+----------------
+by Christian Bauer and Hopper
+
+----------------------------------------------------------------
+DESCRIPTION:
+System Se7en is a GUI theme for Aleph One, based on Apple's System 7 interface for Macintosh computers. This plugin is a remake of Christian Bauer's "MacOS" theme, written for an older version of Aleph One.
+
+----------------------------------------------------------------
+INSTALLATION:
+- Drag the downloaded .zip file, or the unzipped "System_Se7en" folder, into the "Plugins" folder inside your M1A1, Marathon 2, or Marathon Infinity folders. (Create a "Plugins" folder if you don't already have one.)
+- Launch Aleph One, and go to "Preferences", then "Environment", then "Plugins" and make sure the plugin is listed as "Enabled". You can click on it to turn it on or off.
+- For a more authentic experience, uncheck "Smooth Text" in the "Themes" section of the "Environment" preferences.
+
+----------------------------------------------------------------
+CHANGELOG:
+
+v1.2:
+* Added arrows in list scrollbar (they don't work, but they look nice)
+* Redrew slider to match System 7.5 graphics
+* Disabled button outlines are black to match System 7.5 behavior
+* Use authentic Chicago font (disable "Smooth Text" for best results)
+
+v1.1:
+* Fixed game colors in metaserver lobby
+
+v1.0:
+* First release
+
+----------------------------------------------------------------
+SPECIAL THANKS:
+Christian Bauer - For the original Mac lookalike Aleph One theme
+Apple - For obvious reasons
+Treellama - For creating the theming engine, and answering questions
+
+----------------------------------------------------------------
+CONTACT:
+If you have any questions, comments, or bugs to report, you can email me:
+- Hopper@whpress.com
