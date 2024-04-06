@@ -14,7 +14,7 @@
 
   <!-- disable the vidmaster prompt -->
   <interface>
-	<vidmaster stringset_index="9998"/>
+	<vidmaster stringset_index="9998" level_offset="0"/>
   </interface>
   <stringset index="9998">
 	<string index="0"></string>
