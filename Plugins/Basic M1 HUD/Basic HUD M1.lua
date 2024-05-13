@@ -639,7 +639,7 @@ function network_stats_draw()
        gt == "tag" then
       local leastleft = nil
       for p = 1,#Game.players do
-        local thisleft = lim - Game.players[p].kills
+        local thisleft = lim - Game.players[p - 1].kills
         if (not leastleft) or thisleft < leastleft then
           leastleft = thisleft
         end
