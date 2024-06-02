@@ -520,6 +520,11 @@ function sfloor(num)
   return num - (num % hud_rect.scale)
 end
 
+function format_time(ticks)
+  local secs = math.floor(ticks / 30)
+  return string.format("%d:%02d", math.floor(secs / 60), secs % 60)
+end
+
 function player_ranking_text(gametype, ranking)
   if     gametype == "kill monsters" or
          gametype == "capture the flag" or
@@ -536,7 +541,7 @@ function player_ranking_text(gametype, ranking)
          gametype == "kill the man with the ball" or
          gametype == "defense" or
          gametype == "tag" then
-    return string.format("%d:%02d", math.floor(ranking/60), ranking % 60)
+    return format_time(math.abs(ranking))
   end
   return nil
 end
@@ -623,10 +628,7 @@ function network_stats_draw()
   
   -- time/score display in header
   if Game.time_remaining and Game.time_remaining <= 30*60*999 then
-    local seconds = math.floor(Game.time_remaining / 30)
-    local minutes = math.floor(seconds / 60)
-    
-    draw_text_right(f, string.format("%d:%02d", minutes, seconds % 60),
+    draw_text_right(f, format_time(Game.time_remaining),
                     r.xr, r.y, InterfaceColors["inventory text"])
     
   elseif Game.kill_limit then
